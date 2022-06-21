@@ -1,0 +1,1 @@
+go template for rust
