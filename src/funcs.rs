@@ -5,8 +5,8 @@ use std::fmt::Write;
 use gtmpl_value::{Func, FuncError, Value};
 use percent_encoding::{utf8_percent_encode, AsciiSet, CONTROLS};
 
-use crate::gtmpl::printf::sprintf;
-use crate::gtmpl::utils::is_true;
+use crate::printf::sprintf;
+use crate::utils::is_true;
 
 const QUERY_ENCODE: &AsciiSet = &CONTROLS
     .add(b' ')
@@ -68,18 +68,18 @@ macro_rules! gtmpl_fn {
  ) => {
   $(#[$outer])*
   pub fn $name(
-   args: &[$crate::gtmpl::Value]
-  ) -> Result<$crate::gtmpl::Value, FuncError> {
+   args: &[$crate::Value]
+  ) -> Result<$crate::Value, FuncError> {
    if args.is_empty() {
     return Err(FuncError::AtLeastXArgs(stringify!($name).into(), 1));
    }
    let x = &args[0];
-   let $arg0: $typ0 = $crate::gtmpl::from_value(x)
+   let $arg0: $typ0 = $crate::from_value(x)
     .ok_or(FuncError::UnableToConvertFromValue)?;
    fn inner($arg0 : $typ0) -> Result<$otyp, FuncError> {
     $($body)*
    }
-   let ret: $crate::gtmpl::Value = inner($arg0)?.into();
+   let ret: $crate::Value = inner($arg0)?.into();
    Ok(ret)
   }
  };
@@ -90,24 +90,24 @@ macro_rules! gtmpl_fn {
  ) => {
   $(#[$outer])*
   pub fn $name(
-   args: &[$crate::gtmpl::Value]
-  ) -> Result<$crate::gtmpl::Value, FuncError> {
+   args: &[$crate::Value]
+  ) -> Result<$crate::Value, FuncError> {
    #[allow(unused_mut)]
    let mut args = args;
    if args.is_empty() {
     return Err(FuncError::AtLeastXArgs(stringify!($name).into(), 1));
    }
    let x = &args[0];
-   let $arg0: $typ0 = $crate::gtmpl::from_value(x)
+   let $arg0: $typ0 = $crate::from_value(x)
     .ok_or(FuncError::UnableToConvertFromValue)?;
    $(args = &args[1..];
      let x = &args[0];
-     let $arg: $typ = $crate::gtmpl::from_value(x)
+     let $arg: $typ = $crate::from_value(x)
     .ok_or(FuncError::UnableToConvertFromValue)?;)*
    fn inner($arg0 : $typ0, $($arg : $typ,)*) -> Result<$otyp, FuncError> {
     $($body)*
    }
-   let ret: $crate::gtmpl::Value = inner($arg0, $($arg),*)?.into();
+   let ret: $crate::Value = inner($arg0, $($arg),*)?.into();
    Ok(ret)
   }
  }

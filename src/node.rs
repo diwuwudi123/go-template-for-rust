@@ -1,8 +1,8 @@
 use std::fmt::{Display, Formatter};
 
-use crate::gtmpl::error::NodeError;
-use crate::gtmpl::lexer::ItemType;
-use crate::gtmpl::utils::unquote_char;
+use crate::error::NodeError;
+use crate::lexer::ItemType;
+use crate::utils::unquote_char;
 
 use gtmpl_value::Value;
 

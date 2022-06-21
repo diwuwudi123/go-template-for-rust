@@ -19,10 +19,10 @@ mod template;
 mod utils;
 
 #[doc(inline)]
-pub use crate::gtmpl::template::Template;
+pub use crate::template::Template;
 
 #[doc(inline)]
-pub use crate::gtmpl::exec::Context;
+pub use crate::exec::Context;
 
 #[doc(inline)]
 pub use gtmpl_value::Func;

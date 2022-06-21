@@ -1,9 +1,9 @@
 use std::collections::{HashMap, HashSet, VecDeque};
 
-use crate::gtmpl::error::ParseError;
-use crate::gtmpl::lexer::{Item, ItemType, Lexer};
-use crate::gtmpl::node::*;
-use crate::gtmpl::utils::*;
+use crate::error::ParseError;
+use crate::lexer::{Item, ItemType, Lexer};
+use crate::node::*;
+use crate::utils::*;
 
 pub struct Parser {
     name: String,
@@ -775,7 +775,7 @@ impl Iterator for Parser {
 #[cfg(test)]
 mod tests_mocked {
     use super::*;
-    use crate::gtmpl::lexer::ItemType;
+    use crate::lexer::ItemType;
     use gtmpl_value::Value;
 
     /*

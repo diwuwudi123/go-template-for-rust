@@ -2,8 +2,8 @@ use std::char;
 
 use gtmpl_value::{FromValue, Value};
 
-use crate::gtmpl::error::PrintError;
-use crate::gtmpl::print_verb::print;
+use crate::error::PrintError;
+use crate::print_verb::print;
 
 pub fn sprintf(s: &str, args: &[Value]) -> Result<String, PrintError> {
     let tokens = tokenize(s)?;

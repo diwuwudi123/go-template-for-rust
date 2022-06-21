@@ -1,4 +1,4 @@
-use crate::gtmpl::node::{ChainNode, CommandNode, Nodes, PipeNode};
+use crate::node::{ChainNode, CommandNode, Nodes, PipeNode};
 use gtmpl_value::{FuncError, Value};
 use std::{fmt, num::ParseIntError, string::FromUtf8Error};
 use thiserror::Error;

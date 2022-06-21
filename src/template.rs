@@ -1,8 +1,8 @@
 use std::collections::HashMap;
 
-use crate::gtmpl::error::{ParseError, TemplateError};
-use crate::gtmpl::funcs::BUILTINS;
-use crate::gtmpl::parse::{parse, Tree};
+use crate::error::{ParseError, TemplateError};
+use crate::funcs::BUILTINS;
+use crate::parse::{parse, Tree};
 
 use gtmpl_value::Func;
 

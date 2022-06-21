@@ -1,8 +1,8 @@
 use std::char;
 use std::fmt;
 
-use crate::gtmpl::error::PrintError;
-use crate::gtmpl::printf::{params_to_chars, FormatParams};
+use crate::error::PrintError;
+use crate::printf::{params_to_chars, FormatParams};
 
 use gtmpl_value::Value;
 

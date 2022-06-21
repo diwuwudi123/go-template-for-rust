@@ -1,0 +1,29 @@
+[package]
+name = "go-template"
+version = "0.0.1"
+authors = ["wudi <diwuwudi123@outlook.com>"]
+description = "The Golang Templating Language for Rust"
+license = "MIT"
+repository = "https://github.com/diwuwudi123/go-template-for-rust"
+documentation = "https://docs.rs/crate/go-template"
+keywords = ["golang", "template", "templating"]
+categories = ["template-engine"]
+readme = "README.md"
+include = ["Cargo.toml", "src/**/*.rs", "tests/**/*.rs", "README.md", "LICENSE"]
+edition = "2021"
+
+[badges]
+maintenance = { status = "passively-maintained" }
+
+[features]
+gtmpl_dynamic_template = []
+
+[dependencies]
+lazy_static = "1"
+percent-encoding = "2"
+gtmpl_value = "0.5"
+anyhow = "1"
+thiserror = "1"
+
+[dev-dependencies]
+gtmpl_derive = "0.5"

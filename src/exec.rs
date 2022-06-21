@@ -1,10 +1,10 @@
 use std::collections::VecDeque;
 use std::io::Write;
 
-use crate::gtmpl::error::ExecError;
-use crate::gtmpl::node::*;
-use crate::gtmpl::template::Template;
-use crate::gtmpl::utils::is_true;
+use crate::error::ExecError;
+use crate::node::*;
+use crate::template::Template;
+use crate::utils::is_true;
 
 use gtmpl_value::{Func, Value};
 
