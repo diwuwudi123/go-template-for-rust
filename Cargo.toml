@@ -9,8 +9,8 @@ documentation = "https://docs.rs/crate/go-template"
 keywords = ["golang", "template", "templating"]
 categories = ["template-engine"]
 readme = "README.md"
-include = ["Cargo.toml", "src/**/*.rs","README.md", "LICENSE"]
-edition = "2021"
+include = ["Cargo.toml", "src/*.rs","README.md", "LICENSE"]
+edition = "2018"
 
 [badges]
 maintenance = { status = "passively-maintained" }
