@@ -561,9 +561,9 @@ impl NumberNode {
                 let (as_f64, is_f64) = match text.parse::<f64>() {
                     Err(_) => (0.0_f64, false),
                     Ok(f) => {
-                        let frac = text.contains(|c| {
-                            matches! {
-                            c, '.' | 'e' | 'E' }
+                        let frac = text.contains(|c| match c {
+                            '.' | 'e' | 'E' => true,
+                            _ => false,
                         });
                         if frac {
                             (f, true)
