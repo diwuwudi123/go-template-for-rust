@@ -2,7 +2,7 @@ use lazy_static::lazy_static;
 use std::collections::HashMap;
 use std::fmt;
 use std::sync::mpsc::{channel, Receiver, Sender};
-// use std::thread;
+use std::thread;
 
 type Pos = usize;
 
@@ -156,6 +156,27 @@ impl Iterator for Lexer {
 }
 
 impl Lexer {
+    #[cfg(not(target_family = "wasm"))]
+    pub fn new(input: String) -> Lexer {
+        let (tx, rx) = channel();
+        let mut l = LexerStateMachine {
+            input,
+            state: State::LexText,
+            pos: 0,
+            start: 0,
+            width: 0,
+            items_sender: tx,
+            paren_depth: 0,
+            line: 1,
+        };
+        thread::spawn(move || l.run());
+        Lexer {
+            last_pos: 0,
+            items_receiver: rx,
+            finished: false,
+        }
+    }
+    #[cfg(target_family = "wasm")]
     pub fn new(input: String) -> Lexer {
         let (tx, rx) = channel();
         let mut l = LexerStateMachine {
