@@ -18,7 +18,7 @@ pub struct Parser {
     tree_stack: VecDeque<Tree>,
     max_tree_id: TreeId,
 }
-
+#[derive(Clone)]
 pub struct Tree {
     name: String,
     id: TreeId,

@@ -7,6 +7,7 @@ use crate::parse::{parse, Tree};
 use gtmpl_value::Func;
 
 /// The main template structure.
+#[derive(Clone)]
 pub struct Template {
     pub name: String,
     pub text: String,
