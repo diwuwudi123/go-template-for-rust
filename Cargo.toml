@@ -1,6 +1,6 @@
 [package]
 name = "go-template"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["wudi <diwuwudi123@outlook.com>"]
 description = "The Golang Templating Language for Rust"
 license = "MIT"
